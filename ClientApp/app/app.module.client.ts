@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { sharedConfig } from './app.module.shared';
 
 import { ShredderComponent } from './components/shredder/shredder.component';
-
+import { StatisticComponent } from './components/statistic/statistic.component';
 
 @NgModule({
     bootstrap: sharedConfig.bootstrap,
