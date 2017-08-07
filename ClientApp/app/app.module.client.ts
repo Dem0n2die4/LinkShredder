@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { sharedConfig } from './app.module.shared';
 
+import { ShredderComponent } from './components/shredder/shredder.component';
+
+
 @NgModule({
     bootstrap: sharedConfig.bootstrap,
     declarations: sharedConfig.declarations,

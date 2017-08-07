@@ -3,26 +3,31 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component'
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+
+import { ShredderComponent } from './components/shredder/shredder.component';
+
 
 export const sharedConfig: NgModule = {
     bootstrap: [ AppComponent ],
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
         FetchDataComponent,
-        HomeComponent
+        ShredderComponent
     ],
     imports: [
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
+            { path: '', redirectTo: 'shredder', pathMatch: 'full' },
+            { path: 'shredder', component: ShredderComponent },
+            //{ path: '', redirectTo: 'home', pathMatch: 'full' },
+            //{ path: 'home', component: HomeComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: '**', redirectTo: 'home' }
+            //{ path '', redirectTo: 'shredder', pathMatch: 'full' },
+            //{ path: 'shredder', component: ShredderComponent },
+            //{ path: 'statistic', component: StatisticComponent },
+            //{ path: ':guid', componet: RedirectComponent },
+            { path: '**', redirectTo: 'shredder' }
         ])
     ]
 };
