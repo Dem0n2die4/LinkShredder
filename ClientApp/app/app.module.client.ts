@@ -6,6 +6,8 @@ import { sharedConfig } from './app.module.shared';
 
 import { ShredderComponent } from './components/shredder/shredder.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
+
 
 @NgModule({
     bootstrap: sharedConfig.bootstrap,

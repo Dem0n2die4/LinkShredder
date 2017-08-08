@@ -6,6 +6,7 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 
 import { ShredderComponent } from './components/shredder/shredder.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 
 export const sharedConfig: NgModule = {
@@ -14,19 +15,15 @@ export const sharedConfig: NgModule = {
         AppComponent,
         NavMenuComponent,
         ShredderComponent,
-        StatisticComponent
+        StatisticComponent,
+        RedirectComponent
     ],
     imports: [
         RouterModule.forRoot([
             { path: '', redirectTo: 'shredder', pathMatch: 'full' },
             { path: 'shredder', component: ShredderComponent },
             { path: 'statistic', component: StatisticComponent },
-            //{ path: '', redirectTo: 'home', pathMatch: 'full' },
-            //{ path: 'home', component: HomeComponent },
-            //{ path '', redirectTo: 'shredder', pathMatch: 'full' },
-            //{ path: 'shredder', component: ShredderComponent },
-            //{ path: 'statistic', component: StatisticComponent },
-            //{ path: ':guid', componet: RedirectComponent },
+            { path: ':guid', component: RedirectComponent },
             { path: '**', redirectTo: 'shredder' }
         ])
     ]

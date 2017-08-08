@@ -42,9 +42,17 @@ namespace LinkShredderAngular.Controllers
 
         private string ShredLink(string link)
         {
-            return "test short link!";
+            return Guid.NewGuid().ToString().Substring(0,8);
         }
 
+        [HttpGet]
+        public string GetFullLink(string guid)
+        {
+            string result = string.Empty;
 
+            result = dataContext.LinkInfo.Where(w => w.shortLink == guid).First().originalLink;
+
+            return result;
+        }
     }
 }
