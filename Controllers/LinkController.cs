@@ -52,6 +52,13 @@ namespace LinkShredderAngular.Controllers
 
             result = dataContext.LinkInfo.Where(w => w.shortLink == guid).First().originalLink;
 
+
+            if (result != null)
+            {
+                dataContext.LinkInfo.Where(w => w.shortLink == guid).First().redirectsCount++;
+                dataContext.SaveChanges();
+            }
+
             return result;
         }
     }
