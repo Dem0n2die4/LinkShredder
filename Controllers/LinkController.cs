@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LinkShredder.Models;
 
@@ -24,7 +23,7 @@ namespace LinkShredderAngular.Controllers
                 originalLink = link,
                 shortLink = ShredLink(link),
                 redirectsCount = 0,
-                creationDate = DateTime.Now
+                creationDate = DateTime.Now.ToLocalTime()
             };
 
             dataContext.Add(linkInfo);
@@ -34,9 +33,12 @@ namespace LinkShredderAngular.Controllers
         }
 
         [HttpGet]
-        public List<LinkInfo> GetLinksStatistics()
+        public List<LinkInfoView> GetLinksStatistics()
         {
-            var result = dataContext.LinkInfo.Where(a => a.redirectsCount >= 0).ToList();
+            var result = dataContext.LinkInfo.Where(a => a.redirectsCount >= 0).Select(s => new LinkInfoView { originalLink = s.originalLink,
+                                                                                                                shortLink = s.shortLink,
+                                                                                                                creationDate = s.creationDate.ToString("H:mm/dd.MM.yy"),
+                                                                                                                redirectsCount = s.redirectsCount }).ToList();
             return result;
         }
 

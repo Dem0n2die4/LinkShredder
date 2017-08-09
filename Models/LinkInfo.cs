@@ -13,4 +13,12 @@ namespace LinkShredder.Models
         public DateTime creationDate { get; set; }
         public long redirectsCount { get; set; }
     }
+
+    public class LinkInfoView
+    {
+        public string originalLink { get; set; }
+        public string shortLink { get; set; }
+        public string creationDate { get; set; }
+        public long redirectsCount { get; set; }
+    }
 }
